@@ -3,7 +3,7 @@ import tkinter, requests
 root = tkinter.Tk()
 
 root.title('Informações sobre filmes')
-root.geometry('350x325')
+root.geometry('450x325')
 #root.configure(background='gray')
 
 root.resizable(False,False)
@@ -19,15 +19,17 @@ def movie(filme_consultado):
     if data['Response'] == "True":
         filme = data
 
-        print(f'O filme consultado é {filme['Title']}')
-        print(f'O ano de lançamento do filme foi {filme['Year']}')
-        print(f'A nota no IMDB é de {filme['imdbRating']}')
-        print(f'A direção do filme é feito por {filme['Director']}')
-        print(f'O elenco é composto por {filme['Actors']}')
-        print(f'País do filme: {filme['Country']}')
+        info = (f'O filme consultado é {filme['Title']}\n'
+        f'O ano de lançamento do filme foi {filme['Year']}\n'
+        f'A nota no IMDB é de {filme['imdbRating']}\n'
+        f'A direção do filme é feito por {filme['Director']}\n'
+        f'O elenco é composto por {filme['Actors']}\n'
+        f'País do filme: {filme['Country']}')
+
+        return info
 
     else:
-        print('Filme não encontrado ou falha na API')
+        return 'Filme não encontrado ou falha na API'
 
 
 def update_label():
@@ -38,9 +40,9 @@ def update_label():
 #Criação Widgets
 
 frame = tkinter.Frame()
-button = tkinter.Button(frame, text='Clique aqui', command=movie)
+button = tkinter.Button(frame, text='Clique aqui', command=update_label)
 entry = tkinter.Entry(frame,)
-label = tkinter.Label(frame, text='As informações do filme aparecerão aqui!')
+label = tkinter.Label(frame, text='As informações do filme aparecerão aqui!', font=('Roboto', 10))
 
 
 
