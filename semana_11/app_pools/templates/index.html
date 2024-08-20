@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Enquete</title>
+    <link rel="stylesheet" href="/static/style.css">    
+
+</head>
+<body>
+ <h1>Qual é sua linguagem de Programação Favorita?</h1>
+
+ <form action="/" method="post">
+    
+    <input type="radio" name="language" value="Python">
+    <label for="">Python</label>
+    <br>
+    <input type="radio" name="language" value="JavaScript">
+    <label for="">JavaScript</label>
+    <br>
+    <input type="radio" name="language" value="Java">
+    <label for="">Java</label>
+    <br>
+    <input type="radio" name="language" value="Go">
+    <label for="">Go</label>
+    <br>
+    <input type="radio" name="language" value="C#">
+    <label for="">C#</label>
+    <br>
+    <button type="submit">Enviar</button>
+   
+<h1>Resultados</h1>
+<ul>
+    {% for language, votes in resultado.items() %}
+    <li>{{language}}: {{votes}}</li>
+    {% endfor %}
+<ul>
+    
+</ul>
+
+
+ </form>
+
+</body>
+</html>
