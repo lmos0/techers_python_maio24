@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} Página Inicial {% endblock %}
+
+{% block content %}
+
+<h1>Bem-vindo à Minha Aplicação Flask</h1>
+
+{% if 'username' in sessions %}
+<p>Olá, {{session['username'] }} !</p>
+{% else %}
+<p>Por favor, faça login ou cadastra-se</p>
+
+    {% endif %}
+{% endblock %}
