@@ -46,6 +46,7 @@ form div {
 label {
     display: block;
     font-weight: bold;
+    color: black;
 }
 
 input[type="text"], input[type="password"] {

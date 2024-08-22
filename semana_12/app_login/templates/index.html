@@ -6,7 +6,7 @@
 
 <h1>Bem-vindo à Minha Aplicação Flask</h1>
 
-{% if 'username' in sessions %}
+{% if 'username' in session %}
 <p>Olá, {{session['username'] }} !</p>
 {% else %}
 <p>Por favor, faça login ou cadastra-se</p>

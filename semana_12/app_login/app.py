@@ -30,20 +30,22 @@ def cadastro():
     return render_template('cadastro.html')
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'],)
 def login():
+
+    
     if request.method == 'POST':
         username = request.form.get('username')
         senha = request.form.get('senha')
 
-    if not username or not senha:
-        flash('Username e senha são obrigatórios', 'error')
-    elif username not in usuarios or usuarios[username] != senha:
-        flash('Credenciais inválidas', 'error')
-    else:
-        session['username'] = username
-        flash('Login realizado com sucesso', 'success')
-        return redirect(url_for('index'))
+        if not username or not senha:
+            flash('Username e senha são obrigatórios', 'error')
+        elif username not in usuarios or usuarios[username] != senha:
+            flash('Credenciais inválidas', 'error')
+        else:
+            session['username'] = username
+            flash('Login realizado com sucesso', 'success')
+            return redirect(url_for('index'))
 
     return render_template('login.html')
 
